@@ -11,7 +11,7 @@ echo ".."
 sleep 1
 echo "..."
 echo "Update - 1 - Updating OpenVas Feeds-NVD"
-sudo -u gvm greenbone-nvt-sync
+sudo -u gvm greenbone-nvt-sync &> /dev/null
 echo "Update Feed-NVT completed"
 sleep 1
 echo "."
@@ -20,7 +20,7 @@ echo ".."
 sleep 1
 echo "..."
 echo "Update - 2 - Updating OpenVas Feeds-CERTs"
-greenbone-certdata-sync
+greenbone-certdata-sync &> /dev/null
 echo "Update Feeds-CERTs completed"
 sleep 1
 echo "."
@@ -29,7 +29,7 @@ echo ".."
 sleep 1
 echo "..."
 echo "Update - 3 - OpenVas Feeds-SCAP (CVEs e CPEs)"
-greenbone-scapdata-sync
+greenbone-scapdata-sync &> /dev/null
 echo "Update Feeds-SCAP completed"
 sleep 1
 echo "."
@@ -38,7 +38,7 @@ echo ".."
 sleep 1
 echo "..."
 echo "Update - 4 - OpenVas Templates of Policy compliance, Port List and Scan config"
-sudo -u gvm greenbone-feed-sync --type GVMD_DATA
+sudo -u gvm greenbone-feed-sync --type GVMD_DATA &> /dev/null
 echo "Update Feeds-Templates of Policy compliance, Port List and Scan config completed"
 sleep 1
 echo "."
