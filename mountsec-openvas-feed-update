@@ -3,14 +3,23 @@ echo "MountSec 10-2022 - OpenVas Update Feeds - v.1.0"
 echo "Author: Andre Vianna"
 echo "mountsec@mountsec.com.br"
 echo "This script start update feeds of OpenVas Building 22.4 from Source"
-echo "Starting update Feeds of OpenVas - 1 of 3 update feeds..."
+echo "Starting update Feeds of OpenVas - 1 of 4 update feeds..."
 sleep 1
 echo "."
 sleep 1
 echo ".."
 sleep 1
 echo "..."
-echo "Upate - 1 - Updating OpenVas Feeds-CERTs"
+echo "Update - 1 - Updating OpenVas Feeds-NVD"
+sudo -u gvm greenbone-nvt-sync
+echo "Update Feed-NVT completed"
+sleep 1
+echo "."
+sleep 1
+echo ".."
+sleep 1
+echo "..."
+echo "Update - 2 - Updating OpenVas Feeds-CERTs"
 greenbone-certdata-sync
 echo "Update Feeds-CERTs completed"
 sleep 1
@@ -19,7 +28,7 @@ sleep 1
 echo ".."
 sleep 1
 echo "..."
-echo "Updating OpenVas Feeds-SCAP (CVEs e CPEs)"
+echo "Update - 3 - OpenVas Feeds-SCAP (CVEs e CPEs)"
 greenbone-scapdata-sync
 echo "Update Feeds-SCAP completed"
 sleep 1
@@ -28,13 +37,7 @@ sleep 1
 echo ".."
 sleep 1
 echo "..."
-echo "Updating OpenVas Templates of Policy compliance, Port List and Scan config"
-sleep 1
-echo "."
-sleep 1
-echo ".."
-sleep 1
-echo "..."
+echo "Update - 4 - OpenVas Templates of Policy compliance, Port List and Scan config"
 sudo -u gvm greenbone-feed-sync --type GVMD_DATA
 echo "Update Feeds-Templates of Policy compliance, Port List and Scan config completed"
 sleep 1
